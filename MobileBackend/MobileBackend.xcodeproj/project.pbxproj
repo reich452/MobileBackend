@@ -6,6 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C85F407F2C775D5800B616A2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C85F407E2C775D5800B616A2 /* FirebaseAnalytics */; };
+		C85F40812C775D5800B616A2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C85F40802C775D5800B616A2 /* FirebaseAuth */; };
+		C85F40832C775D5800B616A2 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C85F40822C775D5800B616A2 /* FirebaseCrashlytics */; };
+		C85F40852C775D5800B616A2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = C85F40842C775D5800B616A2 /* FirebaseDatabase */; };
+		C85F40872C775D5800B616A2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C85F40862C775D5800B616A2 /* FirebaseFirestore */; };
+		C85F40892C775D5800B616A2 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = C85F40882C775D5800B616A2 /* FirebaseRemoteConfig */; };
+		C85F408B2C775D5800B616A2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C85F408A2C775D5800B616A2 /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		C85F40042C76F6D400B616A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -34,7 +44,10 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"Config/Firebase/Mock/GoogleService-Info.plist",
-				"Config/Firebase/Staging/GoogleService-Info.plist",
+				"Config/Firebase/Release/GoogleService-Info.plist",
+				Config/Mock.xcconfig,
+				Config/Release.xcconfig,
+				Config/Staging.xcconfig,
 				Info.plist,
 			);
 			target = C85F3FEE2C76F6D300B616A2 /* MobileBackend */;
@@ -67,6 +80,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C85F40832C775D5800B616A2 /* FirebaseCrashlytics in Frameworks */,
+				C85F407F2C775D5800B616A2 /* FirebaseAnalytics in Frameworks */,
+				C85F40852C775D5800B616A2 /* FirebaseDatabase in Frameworks */,
+				C85F40892C775D5800B616A2 /* FirebaseRemoteConfig in Frameworks */,
+				C85F408B2C775D5800B616A2 /* FirebaseStorage in Frameworks */,
+				C85F40872C775D5800B616A2 /* FirebaseFirestore in Frameworks */,
+				C85F40812C775D5800B616A2 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +137,7 @@
 				C85F3FEB2C76F6D300B616A2 /* Sources */,
 				C85F3FEC2C76F6D300B616A2 /* Frameworks */,
 				C85F3FED2C76F6D300B616A2 /* Resources */,
+				C85F407A2C77584A00B616A2 /* Configure Firebase Enviornment */,
 			);
 			buildRules = (
 			);
@@ -127,6 +148,13 @@
 			);
 			name = MobileBackend;
 			packageProductDependencies = (
+				C85F407E2C775D5800B616A2 /* FirebaseAnalytics */,
+				C85F40802C775D5800B616A2 /* FirebaseAuth */,
+				C85F40822C775D5800B616A2 /* FirebaseCrashlytics */,
+				C85F40842C775D5800B616A2 /* FirebaseDatabase */,
+				C85F40862C775D5800B616A2 /* FirebaseFirestore */,
+				C85F40882C775D5800B616A2 /* FirebaseRemoteConfig */,
+				C85F408A2C775D5800B616A2 /* FirebaseStorage */,
 			);
 			productName = MobileBackend;
 			productReference = C85F3FEF2C76F6D300B616A2 /* MobileBackend.app */;
@@ -210,6 +238,9 @@
 			);
 			mainGroup = C85F3FE62C76F6D300B616A2;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C85F407D2C775D5800B616A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C85F3FF02C76F6D300B616A2 /* Products */;
 			projectDirPath = "";
@@ -245,6 +276,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C85F407A2C77584A00B616A2 /* Configure Firebase Enviornment */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Configure Firebase Enviornment";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n# This script automates copying the correct `GoogleService-Info.plist` file based on the build environment (Mock, Staging, Release).\n# Define the path to the GoogleService-Info.plist files for different configurations\n\nMOCK_PLIST_PATH=\"${PROJECT_DIR}/MobileBackend/Config/Firebase/Mock/GoogleService-Info.plist\"\nSTAGING_PLIST_PATH=\"${PROJECT_DIR}/MobileBackend/Config/Firebase/Staging/GoogleService-Info.plist\"\nRELEASE_PLIST_PATH=\"${PROJECT_DIR}/MobileBackend/Config/Firebase/Release/GoogleService-Info.plist\"\n\n# Destination path for the GoogleService-Info.plist in the app's bundle\nDESTINATION_PLIST_PATH=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\n\necho \"Current Configuration: ${CONFIGURATION}\"\necho \"Mock plist path: ${MOCK_PLIST_PATH}\"\necho \"Staging plist path: ${STAGING_PLIST_PATH}\"\necho \"Release plist path: ${RELEASE_PLIST_PATH}\"\necho \"Destination path: ${DESTINATION_PLIST_PATH}\"\n\n# Function to copy the plist file with error checking\ncopy_plist() {\n    src=$1\n    dest=$2\n\n    if [ -f \"$src\" ]; then\n        echo \"Copying plist from $src to $dest\"\n        cp \"$src\" \"$dest\"\n        if [ $? -ne 0 ]; then\n            echo \"Error: Failed to copy plist file.\"\n            exit 1\n        fi\n    else\n        echo \"Error: Source plist file does not exist at $src\"\n        exit 1\n    fi\n}\n\n# Determine which plist to use based on the custom environment variable\ncase \"${ENVIRONMENT}\" in\n    \"Mock\")\n        copy_plist \"${MOCK_PLIST_PATH}\" \"${DESTINATION_PLIST_PATH}\"\n        ;;\n    \"Staging\")\n        copy_plist \"${STAGING_PLIST_PATH}\" \"${DESTINATION_PLIST_PATH}\"\n        ;;\n    \"Release\")\n        copy_plist \"${RELEASE_PLIST_PATH}\" \"${DESTINATION_PLIST_PATH}\"\n        ;;\n    *)\n        echo \"Environment not recognized, using Development GoogleService-Info.plist as default\"\n        copy_plist \"${STAGING_PLIST_PATH}\" \"${DESTINATION_PLIST_PATH}\"\n        ;;\nesac\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C85F3FEB2C76F6D300B616A2 /* Sources */ = {
@@ -738,6 +791,55 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C85F407D2C775D5800B616A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C85F407E2C775D5800B616A2 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C85F407D2C775D5800B616A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		C85F40802C775D5800B616A2 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C85F407D2C775D5800B616A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C85F40822C775D5800B616A2 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C85F407D2C775D5800B616A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		C85F40842C775D5800B616A2 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C85F407D2C775D5800B616A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		C85F40862C775D5800B616A2 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C85F407D2C775D5800B616A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		C85F40882C775D5800B616A2 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C85F407D2C775D5800B616A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		C85F408A2C775D5800B616A2 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C85F407D2C775D5800B616A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C85F3FE72C76F6D300B616A2 /* Project object */;
 }

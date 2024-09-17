@@ -7,10 +7,13 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
+// Used for day to day development.
 
-BUNDLE_DISPLAY_NAME = MobileBackend Staging
+BUNDLE_DISPLAY_NAME = MobileDB Stage
 ENVIRONMENT = Staging
+ENABLE_USER_SCRIPT_SANDBOXING = NO
+INFOPLIST_KEY_CFBundleDisplayName = $(BUNDLE_DISPLAY_NAME)
 OTHER_SWIFT_FLAGS = -D STAGING -D DEBUG
-PRODUCT_BUNDLE_IDENTIFIER = com.nickreichard.MobileBackend.$ENVIRONMENT
+PRODUCT_BUNDLE_IDENTIFIER = com.nickreichard.MobileBackend.Staging
 PRODUCT_NAME = MobileBackend
 

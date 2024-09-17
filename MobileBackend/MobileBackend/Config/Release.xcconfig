@@ -7,10 +7,12 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
-
+// Used for production. App Store Release & Test Flight
 
 BUNDLE_DISPLAY_NAME = MobileBackend
 ENVIRONMENT = Release
+ENABLE_USER_SCRIPT_SANDBOXING = NO
+INFOPLIST_KEY_CFBundleDisplayName = $(BUNDLE_DISPLAY_NAME)
 PRODUCT_BUNDLE_IDENTIFIER = com.nickreichard.MobileBackend
 PRODUCT_NAME = MobileBackend
 
