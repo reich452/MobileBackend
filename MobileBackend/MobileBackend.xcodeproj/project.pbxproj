@@ -14,6 +14,7 @@
 		C85F40872C775D5800B616A2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C85F40862C775D5800B616A2 /* FirebaseFirestore */; };
 		C85F40892C775D5800B616A2 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = C85F40882C775D5800B616A2 /* FirebaseRemoteConfig */; };
 		C85F408B2C775D5800B616A2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C85F408A2C775D5800B616A2 /* FirebaseStorage */; };
+		C877F80A2C99D446006BAE91 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = C877F8092C99D446006BAE91 /* SFSafeSymbols */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +49,7 @@
 				Config/Mock.xcconfig,
 				Config/Release.xcconfig,
 				Config/Staging.xcconfig,
-				Info.plist,
+				Resources/Info.plist,
 			);
 			target = C85F3FEE2C76F6D300B616A2 /* MobileBackend */;
 		};
@@ -86,6 +87,7 @@
 				C85F40892C775D5800B616A2 /* FirebaseRemoteConfig in Frameworks */,
 				C85F408B2C775D5800B616A2 /* FirebaseStorage in Frameworks */,
 				C85F40872C775D5800B616A2 /* FirebaseFirestore in Frameworks */,
+				C877F80A2C99D446006BAE91 /* SFSafeSymbols in Frameworks */,
 				C85F40812C775D5800B616A2 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +157,7 @@
 				C85F40862C775D5800B616A2 /* FirebaseFirestore */,
 				C85F40882C775D5800B616A2 /* FirebaseRemoteConfig */,
 				C85F408A2C775D5800B616A2 /* FirebaseStorage */,
+				C877F8092C99D446006BAE91 /* SFSafeSymbols */,
 			);
 			productName = MobileBackend;
 			productReference = C85F3FEF2C76F6D300B616A2 /* MobileBackend.app */;
@@ -240,6 +243,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				C85F407D2C775D5800B616A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C877F8082C99D446006BAE91 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C85F3FF02C76F6D300B616A2 /* Products */;
@@ -351,7 +355,7 @@
 				DEVELOPMENT_TEAM = WAN4D79W79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MobileBackend/Info.plist;
+				INFOPLIST_FILE = MobileBackend/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "$(BUNDLE_DISPLAY_NAME)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -548,7 +552,7 @@
 				DEVELOPMENT_TEAM = WAN4D79W79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MobileBackend/Info.plist;
+				INFOPLIST_FILE = MobileBackend/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "$(BUNDLE_DISPLAY_NAME)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -687,7 +691,7 @@
 				DEVELOPMENT_TEAM = WAN4D79W79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MobileBackend/Info.plist;
+				INFOPLIST_FILE = MobileBackend/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "$(BUNDLE_DISPLAY_NAME)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -801,6 +805,14 @@
 				minimumVersion = 11.1.0;
 			};
 		};
+		C877F8082C99D446006BAE91 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -838,6 +850,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C85F407D2C775D5800B616A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		C877F8092C99D446006BAE91 /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C877F8082C99D446006BAE91 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
