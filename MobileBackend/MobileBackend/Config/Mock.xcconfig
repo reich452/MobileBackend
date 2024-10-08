@@ -1,0 +1,18 @@
+//
+//  Mock.xcconfig
+//  MobileBackend
+//
+//  Created by Nick Reichard on 8/21/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+// Used for local api stubs, local server, or wiremock. 
+
+BUNDLE_DISPLAY_NAME = MobileDB Mock
+ENVIRONMENT = Mock
+ENABLE_USER_SCRIPT_SANDBOXING = NO
+INFOPLIST_KEY_CFBundleDisplayName = $(BUNDLE_DISPLAY_NAME)
+OTHER_SWIFT_FLAGS = -D MOCK -D DEBUG
+PRODUCT_BUNDLE_IDENTIFIER = com.nickreichard.MobileBackend.Staging // TODO: use the emulator
+PRODUCT_NAME = MobileBackend

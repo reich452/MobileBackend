@@ -10,23 +10,13 @@ import SwiftData
 
 @main
 struct MobileBackendApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+   
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @State private var selection: RootTab? = .home
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnboardingView(viewModel: OnboardingViewModel(onboardingStepsUseCase: OnboardingStepsUseCase(), coordinator: OnboardingCoordinator()))
         }
-        .modelContainer(sharedModelContainer)
     }
 }
