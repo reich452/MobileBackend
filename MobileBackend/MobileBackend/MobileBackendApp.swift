@@ -16,7 +16,7 @@ struct MobileBackendApp: App {
 
     var body: some Scene {
         WindowGroup {
-            AppTabView(selection: $selection)
+            OnboardingView(viewModel: OnboardingViewModel(onboardingStepsUseCase: OnboardingStepsUseCase(), coordinator: OnboardingCoordinator()))
         }
     }
 }

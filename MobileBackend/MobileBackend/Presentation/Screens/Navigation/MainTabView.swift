@@ -1,5 +1,5 @@
 //
-//  AppTabView.swift
+//  MainTabView.swift
 //  CloudVsFire
 //
 //  Created by Nick Reichard on 1/26/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AppTabView: View {
+struct MainTabView: View {
     
     @Binding var selection: RootTab?
     
@@ -24,6 +24,6 @@ struct AppTabView: View {
 }
 
 #Preview {
-    AppTabView(selection: .constant(.home))
+    MainTabView(selection: .constant(.home))
     
 }
