@@ -51,50 +51,30 @@ struct OnboardingView: View {
                             viewModel.handleAuthAction(.signIn)
                         }) {
                             Text("Sign In")
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                                .padding(.horizontal)
                         }
+                        .buttonStyle(AppButtonStyle(type: .primaryGradient))
                         
                         Button(action: {
                             viewModel.handleAuthAction(.createAccount)
                         }) {
                             Text("Create Account")
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color.green)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                                .padding(.horizontal)
                         }
+                        .buttonStyle(AppButtonStyle(type: .secondary))
                         
                         Button(action: {
                             viewModel.handleAuthAction(.tryForFree)
                         }) {
                             Text("Try It for Free")
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color.gray)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                                .padding(.horizontal)
                         }
+                        .buttonStyle(AppButtonStyle(type: .tertiary))
                     }
                 } else {
                     Button(action: {
                         viewModel.nextStep()
                     }) {
                         Text("Next")
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                            .padding(.horizontal)
                     }
+                    .buttonStyle(AppButtonStyle(type: .primaryGradient))
                 }
             }
             .navigationDestination(for: AuthRoute.self) { action in

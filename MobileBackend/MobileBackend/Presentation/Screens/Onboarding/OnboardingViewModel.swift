@@ -40,10 +40,6 @@ final class OnboardingViewModel: ObservableObject {
         coordinator.navigateTo(action)
     }
     
-    func resetRoute() {
-        coordinator.route = nil
-    }
-    
     private func loadSteps() {
         steps = onboardingStepsUseCase.execute()
     }
