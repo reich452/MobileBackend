@@ -12,13 +12,10 @@ final class OnboardingViewModel: ObservableObject {
     @Published var steps: [OnboardingStep] = []
     @Published var currentStepIndex = 0
     
-    private let onboardingStepsUseCase: OnboardingStepsUseCase
     private let coordinator: OnboardingCoordinator
     
-    init(onboardingStepsUseCase: OnboardingStepsUseCase, coordinator: OnboardingCoordinator) {
-        self.onboardingStepsUseCase = onboardingStepsUseCase
+    init(coordinator: OnboardingCoordinator) {
         self.coordinator = coordinator
-        
         loadSteps()
     }
     
@@ -41,6 +38,10 @@ final class OnboardingViewModel: ObservableObject {
     }
     
     private func loadSteps() {
-        steps = onboardingStepsUseCase.execute()
+        steps = [OnboardingStep(title: "Feature 1", imageName: "onboardingIcon1", description: "Description for Feature 1"),
+                 OnboardingStep(title: "Feature 2", imageName: "onboardingIcon1", description: "Description for Feature 2"),
+                 OnboardingStep(title: "Feature 3", imageName: "onboardingIcon1", description: "Description for Feature 3"),
+                 OnboardingStep(title: "Get Started", imageName: "onboardingIcon1", description: "Sign in, create an account, or try for free")]
+        
     }
 }
